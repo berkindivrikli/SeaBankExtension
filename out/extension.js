@@ -88,8 +88,8 @@ function activate(context) {
                 vscode.window.showInformationMessage('No shortcuts defined yet.');
                 return;
             }
-            const picked = await vscode.window.showQuickPick(all.map(s => `${s.keybinding.toUpperCase()} — ${s.label}`), { placeHolder: 'Select a shortcut to edit' });
-            keybinding = picked ? picked.split(' — ')[0].toLowerCase() : undefined;
+            const picked = await vscode.window.showQuickPick(all.map(s => `${s.keybinding.toUpperCase()} - ${s.label}`), { placeHolder: 'Select a shortcut to edit' });
+            keybinding = picked ? picked.split(' - ')[0].toLowerCase() : undefined;
         }
         if (!keybinding) {
             return;
@@ -121,8 +121,8 @@ function activate(context) {
                 vscode.window.showInformationMessage('No shortcuts defined yet.');
                 return;
             }
-            const picked = await vscode.window.showQuickPick(all.map(s => `${s.keybinding.toUpperCase()} — ${s.label}`), { placeHolder: 'Select a shortcut to delete' });
-            keybinding = picked ? picked.split(' — ')[0].toLowerCase() : undefined;
+            const picked = await vscode.window.showQuickPick(all.map(s => `${s.keybinding.toUpperCase()} - ${s.label}`), { placeHolder: 'Select a shortcut to delete' });
+            keybinding = picked ? picked.split(' - ')[0].toLowerCase() : undefined;
         }
         if (!keybinding) {
             return;

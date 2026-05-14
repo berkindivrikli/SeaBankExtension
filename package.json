@@ -4,6 +4,7 @@
   "description": "Custom keyboard shortcuts for SQL query execution via MSSQL. Define key combinations mapped to SQL templates and execute them with selected text substitution.",
   "version": "0.0.1",
   "publisher": "BERKIND",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -18,7 +19,20 @@
     "query"
   ],
   "activationEvents": [
-    "onStartupFinished"
+    "onView:seabankShortcutsList",
+    "onCommand:seabank.addShortcut",
+    "onCommand:seabank.editShortcut",
+    "onCommand:seabank.deleteShortcut",
+    "onCommand:seabank.runShortcut0",
+    "onCommand:seabank.runShortcut1",
+    "onCommand:seabank.runShortcut2",
+    "onCommand:seabank.runShortcut3",
+    "onCommand:seabank.runShortcut4",
+    "onCommand:seabank.runShortcut5",
+    "onCommand:seabank.runShortcut6",
+    "onCommand:seabank.runShortcut7",
+    "onCommand:seabank.runShortcut8",
+    "onCommand:seabank.runShortcut9"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -147,6 +161,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/berkindivrikli/SeaBankExtension.git"
+  },
+  "bugs": {
+    "url": "https://github.com/berkindivrikli/SeaBankExtension/issues"
+  },
+  "homepage": "https://github.com/berkindivrikli/SeaBankExtension#readme",
+  "galleryBanner": {
+    "color": "#0B4F6C",
+    "theme": "dark"
   }
 }

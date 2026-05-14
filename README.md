@@ -1,63 +1,60 @@
 # SeaBank SQL Shortcuts
 
-Custom keyboard shortcuts for SQL query execution via MSSQL — just like SSMS but in VS Code!
+Custom keyboard shortcuts for SQL query execution via the Microsoft MSSQL extension. Define SQL templates, map them to `Ctrl+0` through `Ctrl+9`, and run them from a `.sql` editor using the current selection.
 
 ## Features
 
-- **Sidebar Panel**: Click the SQL Shortcuts icon in the activity bar to see all your shortcuts
-- **Add Shortcuts**: Map `Ctrl+0` through `Ctrl+9` to any SQL query template
-- **Selection Substitution**: Use `{selection}` in your query — it gets replaced with whatever text you've selected
-- **MSSQL Integration**: Results appear in the MSSQL results panel, same as running a normal query
+- Sidebar view for managing SQL shortcuts
+- Ten shortcut slots: `Ctrl+0` through `Ctrl+9`
+- `{selection}` placeholder support in SQL templates
+- Query execution through the Microsoft MSSQL extension
+- Per-user shortcut storage via VS Code global state
 
-## How to Use
+## Requirements
 
-1. Install the [MSSQL extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) and connect to your database
-2. Click the **SQL Shortcuts** icon in the sidebar (activity bar)
-3. Click the **+** button to add a new shortcut
-4. Pick a key combination (e.g. `ctrl+3`)
-5. Enter your SQL template, using `{selection}` where the selected text should go:
-   ```
-   SELECT TOP 10 * FROM {selection}
-   ```
-6. Open a `.sql` file, select a table name, press `Ctrl+3` → results appear!
+- VS Code 1.85 or newer
+- [Microsoft MSSQL extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql)
+- An active MSSQL connection in the current SQL editor
 
-## Shortcut Slots
+## Usage
 
-The extension provides 10 shortcut slots: `Ctrl+0` through `Ctrl+9`. These keybindings are only active when you're editing a SQL file.
+1. Install and connect with the Microsoft MSSQL extension.
+2. Open the SeaBank SQL Shortcuts view from the Activity Bar.
+3. Click the add button and choose a shortcut slot.
+4. Enter a SQL template. Use `{selection}` where selected text should be inserted.
+5. Open a `.sql` file, select text, and press the assigned shortcut.
 
-## Examples
+Example template:
+
+```sql
+SELECT TOP 100 *
+FROM {selection}
+```
+
+## Example Shortcuts
 
 | Shortcut | Query Template |
-|----------|---------------|
+| --- | --- |
 | Ctrl+1 | `SELECT TOP 100 * FROM {selection}` |
 | Ctrl+2 | `SELECT COUNT(*) FROM {selection}` |
 | Ctrl+3 | `SP_HELP {selection}` |
 | Ctrl+4 | `SELECT * FROM {selection} WHERE 1=0` |
 
-## Requirements
-
-- VS Code 1.85+
-- [MSSQL Extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) installed and connected
-
-## Building & Publishing
+## Development
 
 ```bash
 npm install
 npm run compile
-
-# Package as .vsix
-npx @vscode/vsce package
-
-# Publish to marketplace
-npx @vscode/vsce publish
 ```
 
-## Development
+Press `F5` in VS Code to launch an Extension Development Host.
 
-1. `npm install`
-2. `npm run compile`
-3. Press `F5` to launch Extension Development Host
-4. Open a `.sql` file and test your shortcuts
+## Packaging
+
+```bash
+npm run compile
+npx @vscode/vsce package
+```
 
 ## License
 

@@ -62,10 +62,10 @@ export function activate(context: vscode.ExtensionContext) {
                 }
 
                 const picked = await vscode.window.showQuickPick(
-                    all.map(s => `${s.keybinding.toUpperCase()} — ${s.label}`),
+                    all.map(s => `${s.keybinding.toUpperCase()} - ${s.label}`),
                     { placeHolder: 'Select a shortcut to edit' }
                 );
-                keybinding = picked ? picked.split(' — ')[0].toLowerCase() : undefined;
+                keybinding = picked ? picked.split(' - ')[0].toLowerCase() : undefined;
             }
 
             if (!keybinding) { return; }
@@ -101,10 +101,10 @@ export function activate(context: vscode.ExtensionContext) {
                 }
 
                 const picked = await vscode.window.showQuickPick(
-                    all.map(s => `${s.keybinding.toUpperCase()} — ${s.label}`),
+                    all.map(s => `${s.keybinding.toUpperCase()} - ${s.label}`),
                     { placeHolder: 'Select a shortcut to delete' }
                 );
-                keybinding = picked ? picked.split(' — ')[0].toLowerCase() : undefined;
+                keybinding = picked ? picked.split(' - ')[0].toLowerCase() : undefined;
             }
 
             if (!keybinding) { return; }
